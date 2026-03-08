@@ -1,5 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=VT323&family=Silkscreen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
 
+:root {
+    --silkscreen: "Silkscreen", sans-serif;
+    --window-border: #c9e5c3;
+}
 
 
 * {
@@ -8,26 +13,148 @@
     padding: 0;
 }
 
-
 body {
     background: #e7f2d6 url('imgs/appbg.webp') repeat;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 0.9rem;
+    font-size: 11px;
     line-height: 1.6;
-    color: var(--text);
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
+    color: #869184;
 }
 
-h1,
-h2,
-h3 {
-    font-family: 'VT323', monospace;
-    font-size: 2rem;
-    /* VT323 needs to be big to shine */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04) 1px, transparent 1px, transparent 2px);
+    pointer-events: none;
+    z-index: 1000;
 }
+
+.app {
+    width: 550px;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+
+.window-title {
+    font-family: var(--silkscreen);
+    color: #9daf81;
+    background-color: #f9fcf7;
+    padding: 4px 8px;
+    letter-spacing: 3px;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid var(--window-border);
+    border-bottom: 0;
+}
+
+.win-icon {
+    float: right;
+    opacity: 0.8;
+}
+
+.window-main {
+    background-color: #fff;
+    border: 1px solid var(--window-border);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.07);
+    padding: 16px;
+    margin-bottom: 8px;
+}
+
+
+/* header window */
+
+.intro {
+    display: block;
+    text-align: center;
+}
+
+
+/* search bar */
+
+.search-bar {
+    z-index: 10;
+    display: flex;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 0.5px solid #99a685;
+    margin-top: 16px;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 8px 16px 8px 40px;
+    border: none;
+    background-color: #f9fcf7;
+    font-size: 1rem;
+    outline: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238a8580' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 14px center;
+}
+
+.search-bar input::placeholder {
+    color: #9daf81;
+    opacity: 0.6;
+}
+
+.search-bar button {
+    font-family: var(--silkscreen);
+    font-size: 12px;
+    padding: 8px 24px;
+    background-color: #dae3d4;
+    color: #9daf81;
+    border: none;
+    border-left: 1px solid var(--message);
+    letter-spacing: 3px;
+}
+
+.search-bar button:hover {
+    background-color: #9daf81;
+    color: #dae3d4;
+    cursor: pointer;
+}
+
+
+/* nav */
+
+nav {
+    margin-bottom: 8px;
+    text-align: center;
+    padding: 8px;
+}
+
+nav a {
+    font-family: var(--silkscreen);
+    display: inline-block;
+    color: #99a685;
+    border-radius: 5px;
+    padding: 4px 10px;
+    margin: 0 10px;
+    background: #dae3d4;
+    border: 1px solid #99a685;
+    border-style: dotted;
+    text-decoration: none;
+}
+
+
+nav a:hover {
+    transform: translateY(1px);
+    color: #dae3d4;
+    background-color: #99a685;
+}
+
+
+
+/* main window */
+
+
 
 
 
@@ -54,5 +181,3 @@ h3 {
 .github-button:hover {
     color: #0366d6;
 }
-
-

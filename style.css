@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
 
+/* @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap'); */
+
 :root {
     --silkscreen: "Silkscreen", sans-serif;
     --window-border: #c9e5c3;
@@ -16,7 +18,7 @@
 body {
     background: #e7f2d6 url('imgs/appbg.webp') repeat;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 11px;
+    font-size: 12px;
     line-height: 1.6;
     display: flex;
     flex-direction: column;
@@ -35,7 +37,8 @@ body::before {
 }
 
 .app {
-    width: 550px;
+    width: 100%;
+    max-width: 550px;
     padding-top: 30px;
     display: flex;
     flex-direction: column;
@@ -75,6 +78,9 @@ body::before {
     text-align: center;
 }
 
+.intro p {
+    padding-top: 8px;
+}
 
 /* search bar */
 
@@ -154,7 +160,113 @@ nav a:hover {
 
 /* main window */
 
+/* film card */
+.film-card {
+    display: flex;
+    gap: 14px;
+    padding: 10px;
+    border: 1px solid var(--window-border);
+    background-color: #f5f8f0;
+}
 
+.film-card img {
+    width: 100px;
+    height: 148px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.film-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+
+.film-title-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-family: var(--silkscreen);
+}
+
+.film-info h2 {
+    text-transform: uppercase;
+    font-size: 1.25rem;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: goldenrod;
+
+}
+
+.rating svg {
+    width: 13px;
+    height: 13px;
+}
+
+
+.meta-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    
+}
+
+.dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: green;
+    display: inline-block;
+}
+
+.synopsis {
+    line-height: 1.6;
+}
+
+
+
+
+/* 
+
+
+gap: 6px;
+padding-top: 2px;
+justify-content: center;
+
+
+
+
+
+
+
+
+
+
+
+
+.watchlist-add {
+    display: block;
+    margin-top: 10px;
+    border: 0;
+    background: none;
+    color: var(--subtext);
+}
+
+
+.watchlist-add:hover {
+    color: var(--hover);
+    cursor: pointer;
+}
+
+
+*/
 
 
 

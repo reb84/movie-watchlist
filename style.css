@@ -314,6 +314,7 @@ nav a:hover,
     width: 1.125rem;
     height: 1.125rem;
     color: #14801c;
+    z-index: 1000;
 }
 
 .github-button svg {

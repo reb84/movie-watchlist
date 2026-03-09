@@ -28,9 +28,7 @@ async function handleClick(e) {
     messageContainer.textContent =
       "Unable to find what you’re looking for. Please try another search.";
   } else {
-    const res = await fetch(
-      `https://www.omdbapi.com/?s=${query}&type=movie&apikey=59a9ee25`,
-    );
+    const res = await fetch(`/api/search?s=${query}`);
     const data = await res.json();
 
     // message if search is void
@@ -43,7 +41,7 @@ async function handleClick(e) {
     searchResults = await Promise.all(
       data.Search.map((movie) =>
         fetch(
-          `https://www.omdbapi.com/?i=${movie.imdbID}&type=movie&apikey=59a9ee25`,
+          `/api/search?i=${movie.imdbID}`,
         ).then((res) => res.json()),
       ),
     );
@@ -127,8 +125,6 @@ document.addEventListener("click", (e) => {
       btn.innerHTML = `${removeIcon} Remove`;
     } else {
       const updated = watchlist.filter((m) => m.imdbID !== id);
-      btn.innerHTML = `${removeIcon} Remove`;
-      btn.innerHTML = `${removeIcon} Remove`;
       localStorage.setItem("watchlist", JSON.stringify(updated));
       btn.innerHTML = `${addIcon} Watchlist`;
 

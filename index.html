@@ -48,6 +48,12 @@
 
     <div class="app">
       <header>
+        <nav>
+          <img src="imgs/pixl2.gif" alt="divider stars" />
+          <a href="watchlist.html">My Watchlist</a>
+          <img src="imgs/pixl2.gif" alt="divider stars" />
+        </nav>
+
         <div class="window-section">
           <div class="window-title">
             Movie Watchlist.app
@@ -72,12 +78,6 @@
             </div>
           </div>
         </div>
-
-        <nav>
-          <img src="imgs/div-icon.jpg" alt="divider stars" />
-          <a href="watchlist.html">My Watchlist</a>
-          <img src="imgs/div-icon.jpg" alt="divider stars" />
-        </nav>
       </header>
 
       <main>
@@ -89,11 +89,31 @@
 
           <div class="window-main">
             <article class="film-card">
-              <img
-                src="https://m.media-amazon.com/images/M/MV5BNzQzMzJhZTEtOWM4NS00MTdhLTg0YjgtMjM4MDRkZjUwZDBlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg"
-                alt="Blade Runner poster"
-              />
+              <div class="left-container">
+                <img
+                  src="https://m.media-amazon.com/images/M/MV5BNzQzMzJhZTEtOWM4NS00MTdhLTg0YjgtMjM4MDRkZjUwZDBlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg"
+                  alt="Blade Runner poster"
+                />
 
+                <span class="watchlist-btn">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="3"
+                    stroke="currentColor"
+                    class="size-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 4.5v15m7.5-7.5h-15"
+                    />
+                  </svg>
+
+                  Watchlist
+                </span>
+              </div>
               <div class="film-info">
                 <div class="film-title-row">
                   <h2>Blade Runner</h2>
@@ -102,7 +122,7 @@
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
-                      stroke-width="1.5"
+                      stroke-width="3"
                       stroke="currentColor"
                       class="size-6"
                     >
@@ -121,23 +141,6 @@
                   <span class="runtime">117 min</span>
                   <span class="dot"></span>
                   <span class="genres">Action, Drama, Sci-fi</span>
-                  <!-- <span class="watchlist-add">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="size-6"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                      />
-                    </svg>
-                    Watchlist
-                  </span> -->
                 </div>
                 <p class="synopsis">
                   A blade runner must pursue and terminate four replicants who

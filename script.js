@@ -40,9 +40,7 @@ async function handleClick(e) {
     // wait so both searches display at same time
     searchResults = await Promise.all(
       data.Search.map((movie) =>
-        fetch(
-          `/api/search?i=${movie.imdbID}`,
-        ).then((res) => res.json()),
+        fetch(`/api/search?i=${movie.imdbID}`).then((res) => res.json()),
       ),
     );
     // should filter out results with bad data
@@ -118,10 +116,9 @@ document.addEventListener("click", (e) => {
 
     btn.classList.toggle("remove");
     if (btn.classList.contains("remove")) {
-      if (movieObject) {
-        watchlist.push(movieObject);
-        localStorage.setItem("watchlist", JSON.stringify(watchlist));
-      }
+      watchlist.push(movieObject);
+      localStorage.setItem("watchlist", JSON.stringify(watchlist));
+
       btn.innerHTML = `${removeIcon} Remove`;
     } else {
       const updated = watchlist.filter((m) => m.imdbID !== id);

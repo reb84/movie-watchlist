@@ -160,7 +160,7 @@ const renderWatchlist = () => {
     />
 
     <button class="watchlist-btn" data-id="${data.imdbID}">
-      + Watchlist
+      ${addIcon} Watchlist
     </button>
   </div>
   <div class="film-info">

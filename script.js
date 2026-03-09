@@ -63,35 +63,33 @@ const render = (movies) => {
   resultsContainer.innerHTML = movies
     .map(
       (data) => `
-    <article class="film-card">
-         <div class="left">
-      <img
-        src="${data.Poster}"
-        alt="${data.Title} poster"
-          onerror="this.src='noimg.jpg'"
-      />
-      <button class="watchlist-btn" data-id="${data.imdbID}">
-  ${addIcon}
-  Watchlist
-</button>
-</div>
-      <div class="film-info">
-        <div class="film-title-row">
-          <h2>${data.Title}</h2>
-        <span class="year">(${data.Year})</span>
-          <span class="rating">
-            ${starIcon}
-${data.imdbRating}
-          </span>
-        </div>
-        <div class="meta-row">
-          <span class="runtime">${data.Runtime}</span>
-          <span class="dot"></span>
-          <span class="genres">${data.Genre}</span>
-        </div>
-        <p class="synopsis">${data.Plot}</p>
-      </div>
-    </article>
+<article class="film-card">
+  <div class="left-container">
+    <img
+      src="${data.Poster}"
+      alt="${data.Title} poster"
+      onerror="this.src = 'imgs/noimg.jpg'"
+    />
+
+    <button class="watchlist-btn" data-id="${data.imdbID}">
+      ${addIcon} Watchlist
+    </button>
+  </div>
+  <div class="film-info">
+    <div class="film-title-row">
+      <h2>${data.Title}</h2>
+      <span class="rating">${starIcon} ${data.imdbRating} </span>
+    </div>
+    <div class="meta-row">
+      <span class="year">${data.Year}</span>
+      <span class="dot"></span>
+      <span class="runtime">${data.Runtime}</span>
+      <span class="dot"></span>
+      <span class="genres">${data.Genre}</span>
+    </div>
+    <p class="synopsis">${data.Plot}</p>
+  </div>
+</article>
   `,
     )
     .join("");
@@ -122,11 +120,15 @@ document.addEventListener("click", (e) => {
 
     btn.classList.toggle("remove");
     if (btn.classList.contains("remove")) {
-      watchlist.push(movieObject);
-      localStorage.setItem("watchlist", JSON.stringify(watchlist));
+      if (movieObject) {
+        watchlist.push(movieObject);
+        localStorage.setItem("watchlist", JSON.stringify(watchlist));
+      }
       btn.innerHTML = `${removeIcon} Remove`;
     } else {
       const updated = watchlist.filter((m) => m.imdbID !== id);
+      btn.innerHTML = `${removeIcon} Remove`;
+      btn.innerHTML = `${removeIcon} Remove`;
       localStorage.setItem("watchlist", JSON.stringify(updated));
       btn.innerHTML = `${addIcon} Watchlist`;
 
@@ -144,12 +146,8 @@ const renderWatchlist = () => {
   //   display message if watchlist is empty
   if (watchlist.length === 0) {
     watchlistContainer.innerHTML = `<div class="message">
+    <img src="imgs/pixl3.gif" alt="cute green ghost" />
           Your watchlist is looking a little empty...
-          <span class="add-movies"
-            ><a href="index.html"
-              >${addIcon} Let's add some movies!</a
-            ></span
-          >
         </div>`;
     return;
   }
@@ -158,34 +156,32 @@ const renderWatchlist = () => {
     .map(
       (data) => `
     <article class="film-card">
-    <div class="left">
-      <img
-        src="${data.Poster}"
-        alt="${data.Title} poster"
-          onerror="this.src='noimg.jpg'"
-      />
-      <button class="watchlist-btn" data-id="${data.imdbID}">
-  ${addIcon}
-  Watchlist
-</button>
-</div>
-      <div class="film-info">
-        <div class="film-title-row">
-          <h2>${data.Title}</h2>
-        <span class="year">(${data.Year})</span>
-          <span class="rating">
-            ${starIcon}${data.imdbRating}
-          </span>
-        </div>
-        <div class="meta-row">
-          <span class="runtime">${data.Runtime}</span>
-          <span class="dot"></span>
-          <span class="genres">${data.Genre}</span>
-          
-        </div>
-        <p class="synopsis">${data.Plot}</p>
-      </div>
-    </article>
+  <div class="left-container">
+    <img
+      src="${data.Poster}"
+      alt="${data.Title} poster"
+      onerror="this.src = 'noimg.jpg'"
+    />
+
+    <button class="watchlist-btn" data-id="${data.imdbID}">
+      ${addIcon} Watchlist
+    </button>
+  </div>
+  <div class="film-info">
+    <div class="film-title-row">
+      <h2>${data.Title}</h2>
+      <span class="rating">${starIcon} ${data.imdbRating} </span>
+    </div>
+    <div class="meta-row">
+      <span class="year">${data.Year}</span>
+      <span class="dot"></span>
+      <span class="runtime">${data.Runtime}</span>
+      <span class="dot"></span>
+      <span class="genres">${data.Genre}</span>
+    </div>
+    <p class="synopsis">${data.Plot}</p>
+  </div>
+</article>
   `,
     )
     .join("");
